@@ -1,6 +1,7 @@
 package com.example.t2009m1helloworld.controller;
 
 import com.example.t2009m1helloworld.entity.Account;
+import com.example.t2009m1helloworld.model.MySqlAccountModel;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,9 +17,9 @@ public class RegisterController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String fullName =  req.getParameter("fullName");
-        String email = req.getParameter("email");
-        String phone = req.getParameter("phone");
+        String fullName = req.getParameter("fullName");
+        String email    = req.getParameter("email");
+        String phone    = req.getParameter("phone");
         String username = req.getParameter("username");
         String birthday = req.getParameter("birthday");
         String password = req.getParameter("password");
@@ -29,8 +30,13 @@ public class RegisterController extends HttpServlet {
         account.setUsername(username);
         account.setBirthday(birthday);
         account.setPassword(password);
-        req.setAttribute("account",account);
-        req.getRequestDispatcher("/notify-page/register-success.jsp").forward(req,resp);
+        MySqlAccountModel mySqlAccountModel = new MySqlAccountModel();
+        boolean result = mySqlAccountModel.Save(account);
+        if(result){
+            req.setAttribute("account",account);
+            req.getRequestDispatcher("/notify-page/register-success.jsp").forward(req,resp);
+        }
+        req.getRequestDispatcher("/auth/register.jsp").forward(req,resp);
 
     }
 }
