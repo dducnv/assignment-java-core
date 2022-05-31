@@ -18,9 +18,9 @@ public class runtest {
         MySqlAccountModel mySqlAccountModel = new MySqlAccountModel();
         Account account = new Account();
         account.setFullName("Duc");
-        account.setUsername("Duc");
-        account.setPhone("0383665477");
-        account.setEmail("hello@gmail.com");
+        account.setUsername("Duc25");
+        account.setPhone("0383665479");
+        account.setEmail("hello25@gmail.com");
         account.setBirthday("07/12/2002");
         account.setPassword("hello");
         boolean result = mySqlAccountModel.Save(account);

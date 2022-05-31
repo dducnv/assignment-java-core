@@ -21,4 +21,29 @@
         <servlet-name>Register</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Admin</servlet-name>
+        <servlet-class>com.example.t2009m1helloworld.controller.admin.DashboardController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Admin</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ListProduct</servlet-name>
+        <jsp-file>/admin/views/product/list.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListProduct</servlet-name>
+        <url-pattern>/admin/product/list-products</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FormAdd</servlet-name>
+        <jsp-file>/admin/views/product/form.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FormAdd</servlet-name>
+        <url-pattern>/admin/product/add-product</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -12,9 +12,8 @@ import java.io.IOException;
 public class RegisterController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/auth/register.jsp").forward(req,resp);
+        req.getRequestDispatcher("/admin/views/product/list.jsp").forward(req,resp);
     }
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String fullName = req.getParameter("fullName");
@@ -30,6 +29,12 @@ public class RegisterController extends HttpServlet {
         account.setUsername(username);
         account.setBirthday(birthday);
         account.setPassword(password);
+        if(!account.isValid()){
+            req.setAttribute("account",account);
+            req.setAttribute("error",account.getError());
+            req.getRequestDispatcher("/auth/register.jsp").forward(req,resp);
+            return;
+        }
         MySqlAccountModel mySqlAccountModel = new MySqlAccountModel();
         boolean result = mySqlAccountModel.Save(account);
         if(result){
