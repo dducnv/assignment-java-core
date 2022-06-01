@@ -23,31 +23,32 @@
                                 <p class="card-description">
                                     Basic form layout
                                 </p>
-                                <form class="forms-sample">
+                                <form action="/product" method="post" class="forms-sample">
                                     <div class="form-group">
-                                        <label for="exampleInputUsername1">Username</label>
-                                        <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username">
+                                        <label for="exampleInputUsername1">Title</label>
+                                        <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Title">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                                        <label for="exampleInputEmail1">Thumbnail</label>
+                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Thumbnail">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                        <label for="exampleInputPassword1">Price</label>
+                                        <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Price">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputConfirmPassword1">Confirm Password</label>
-                                        <input type="password" class="form-control" id="exampleInputConfirmPassword1" placeholder="Password">
+                                        <label for="exampleInputConfirmPassword1">Quantity</label>
+                                        <input type="number" class="form-control" id="exampleInputConfirmPassword1" placeholder="Quantity">
                                     </div>
-                                    <div class="form-check form-check-flat form-check-primary">
-                                        <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input">
-                                            Remember me
-                                        </label>
+                                    <div class="form-group">
+                                        <label for="description">Description</label>
+                                        <textarea class="form-control" id="description" name="desc" rows="4"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="details">Details</label>
+                                        <textarea class="form-control" id="details" name="details" rows="4"></textarea>
                                     </div>
                                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                                    <button class="btn btn-light">Cancel</button>
                                 </form>
                             </div>
                         </div>

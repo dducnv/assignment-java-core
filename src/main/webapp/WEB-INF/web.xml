@@ -30,20 +30,53 @@
         <servlet-name>Admin</servlet-name>
         <url-pattern>/admin</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Category</servlet-name>
+        <servlet-class>com.example.t2009m1helloworld.controller.admin.CategoryController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Category</servlet-name>
+        <url-pattern>/category</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Product</servlet-name>
+        <servlet-class>com.example.t2009m1helloworld.controller.admin.ProductController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Product</servlet-name>
+        <url-pattern>/product</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>ListProduct</servlet-name>
         <jsp-file>/admin/views/product/list.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>ListProduct</servlet-name>
-        <url-pattern>/admin/product/list-products</url-pattern>
+        <url-pattern>/admin/product/list</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>FormAdd</servlet-name>
+        <servlet-name>FormAddProduct</servlet-name>
         <jsp-file>/admin/views/product/form.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
-        <servlet-name>FormAdd</servlet-name>
-        <url-pattern>/admin/product/add-product</url-pattern>
+        <servlet-name>FormAddProduct</servlet-name>
+        <url-pattern>/admin/product/add</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ListCategory</servlet-name>
+        <jsp-file>/admin/views/product/list.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListCategory</servlet-name>
+        <url-pattern>/admin/category/list</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FormAddCategory</servlet-name>
+        <jsp-file>/admin/views/category/form.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FormAddCategory</servlet-name>
+        <url-pattern>/admin/category/add</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 public class Product extends BaseEntity {
     int Id;
-    String Name;
+    String Title;
     String Thumbnail;
     String Description;
     int Price;
@@ -15,14 +15,14 @@ public class Product extends BaseEntity {
     String Details;
     String manufacturerEmail;
     String manufacturerPhone;
-    private ProductStatus status;
+    int status;
 
     public Product() {
     }
 
-    public Product(int id, String name, String thumbnail, String description, int price, int quantity, String details, String manufacturerEmail, String manufacturerPhone, ProductStatus status) {
+    public Product(int id, String title, String thumbnail, String description, int price, int quantity, String details, String manufacturerEmail, String manufacturerPhone, int status) {
         Id = id;
-        Name = name;
+        Title = title;
         Thumbnail = thumbnail;
         Description = description;
         Price = price;
@@ -41,12 +41,12 @@ public class Product extends BaseEntity {
         Id = id;
     }
 
-    public String getName() {
-        return Name;
+    public String getTitle() {
+        return Title;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setTitle(String title) {
+        Title = title;
     }
 
     public String getThumbnail() {
@@ -105,11 +105,11 @@ public class Product extends BaseEntity {
         this.manufacturerPhone = manufacturerPhone;
     }
 
-    public ProductStatus getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(ProductStatus status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 }
