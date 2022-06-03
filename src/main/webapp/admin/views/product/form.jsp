@@ -1,4 +1,7 @@
-<%--
+<%@ page import="com.example.t2009m1helloworld.model.MySqlCategoryModel" %>
+<%@ page import="com.example.t2009m1helloworld.entity.Category" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: ducnv
   Date: 31/05/2022
@@ -8,6 +11,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <jsp:include page="/admin/components/head.jsp"/>
+<%
+    MySqlCategoryModel categoryModal = new MySqlCategoryModel();
+    List<Category> categories = categoryModal.getAll();
+%>
 <body>
 <div class="container-scroller">
     <jsp:include page="/admin/components/navbar.jsp"/>
@@ -26,23 +33,40 @@
                                 <form action="/product" method="post" class="forms-sample">
                                     <div class="form-group">
                                         <label for="exampleInputUsername1">Title</label>
-                                        <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Title">
+                                        <input type="text" class="form-control" name="title" id="exampleInputUsername1"
+                                               placeholder="Title">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Thumbnail</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Thumbnail">
+                                        <input type="text" class="form-control" name="thumbnail" id="exampleInputEmail1"
+                                               placeholder="Thumbnail">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Price</label>
-                                        <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Price">
+                                        <input type="number" class="form-control" name="price"
+                                               id="exampleInputPassword1" placeholder="Price">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputConfirmPassword1">Quantity</label>
-                                        <input type="number" class="form-control" id="exampleInputConfirmPassword1" placeholder="Quantity">
+                                        <input type="number" class="form-control" name="quantity"
+                                               id="exampleInputConfirmPassword1" placeholder="Quantity">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Single select box using select 2</label>
+                                        <select name="category_id" class="js-example-basic-single w-100">
+                                            <%
+                                                for (Category category : categories) {%>
+                                            <option value="<%=category.getId()%>"><%=category.getName()%>
+                                            </option>
+                                            <%
+                                                }
+                                            %>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="description">Description</label>
-                                        <textarea class="form-control" id="description" name="desc" rows="4"></textarea>
+                                        <textarea class="form-control" id="description" name="description"
+                                                  rows="4"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="details">Details</label>

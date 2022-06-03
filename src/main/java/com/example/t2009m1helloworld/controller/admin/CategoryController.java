@@ -10,8 +10,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 public class CategoryController extends HttpServlet {
+    private MySqlCategoryModel categoryModal;
+    @Override
+    public void init() throws ServletException {
+        categoryModal = new MySqlCategoryModel();
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<Category> categories = categoryModal.getAll();
+        req.setAttribute("categories", categories);
+        req.getRequestDispatcher("/admin/views/category/list.jsp").forward(req, resp);
+    }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
@@ -28,8 +42,8 @@ public class CategoryController extends HttpServlet {
         Category category = new Category();
         category.setName(name);
         category.setStatus(categoryStatus);
-        MySqlCategoryModel mySqlCategoryModel = new MySqlCategoryModel();
-        mySqlCategoryModel.Save(category);
+//        MySqlCategoryModel mySqlCategoryModel = new MySqlCategoryModel();
+        categoryModal.Save(category);
         req.getRequestDispatcher("/admin/views/category/list.jsp").forward(req,resp);
     }
 }

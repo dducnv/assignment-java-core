@@ -39,6 +39,7 @@
         <servlet-name>Category</servlet-name>
         <url-pattern>/category</url-pattern>
     </servlet-mapping>
+
     <servlet>
         <servlet-name>Product</servlet-name>
         <servlet-class>com.example.t2009m1helloworld.controller.admin.ProductController</servlet-class>
@@ -47,6 +48,8 @@
         <servlet-name>Product</servlet-name>
         <url-pattern>/product</url-pattern>
     </servlet-mapping>
+
+
     <servlet>
         <servlet-name>ListProduct</servlet-name>
         <jsp-file>/admin/views/product/list.jsp</jsp-file>
@@ -55,6 +58,8 @@
         <servlet-name>ListProduct</servlet-name>
         <url-pattern>/admin/product/list</url-pattern>
     </servlet-mapping>
+
+
     <servlet>
         <servlet-name>FormAddProduct</servlet-name>
         <jsp-file>/admin/views/product/form.jsp</jsp-file>

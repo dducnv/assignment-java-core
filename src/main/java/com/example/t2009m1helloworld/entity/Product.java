@@ -12,6 +12,7 @@ public class Product extends BaseEntity {
     String Description;
     int Price;
     int Quantity;
+    int CategoryId;
     String Details;
     String manufacturerEmail;
     String manufacturerPhone;
@@ -20,13 +21,29 @@ public class Product extends BaseEntity {
     public Product() {
     }
 
-    public Product(int id, String title, String thumbnail, String description, int price, int quantity, String details, String manufacturerEmail, String manufacturerPhone, int status) {
+    public Product(int id, String title, String thumbnail, String description, int price, int quantity, int categoryId, String details, String manufacturerEmail, String manufacturerPhone, int status) {
         Id = id;
         Title = title;
         Thumbnail = thumbnail;
         Description = description;
         Price = price;
         Quantity = quantity;
+        CategoryId = categoryId;
+        Details = details;
+        this.manufacturerEmail = manufacturerEmail;
+        this.manufacturerPhone = manufacturerPhone;
+        this.status = status;
+    }
+
+    public Product(LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime deletedAt, int createdBy, int updatedBy, int deletedBy, int id, String title, String thumbnail, String description, int price, int quantity, int categoryId, String details, String manufacturerEmail, String manufacturerPhone, int status) {
+        super(createdAt, updatedAt, deletedAt, createdBy, updatedBy, deletedBy);
+        Id = id;
+        Title = title;
+        Thumbnail = thumbnail;
+        Description = description;
+        Price = price;
+        Quantity = quantity;
+        CategoryId = categoryId;
         Details = details;
         this.manufacturerEmail = manufacturerEmail;
         this.manufacturerPhone = manufacturerPhone;
@@ -79,6 +96,14 @@ public class Product extends BaseEntity {
 
     public void setQuantity(int quantity) {
         Quantity = quantity;
+    }
+
+    public int getCategoryId() {
+        return CategoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        CategoryId = categoryId;
     }
 
     public String getDetails() {

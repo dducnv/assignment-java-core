@@ -39,7 +39,7 @@ public class MySqlCategoryModel implements CategoryModel {
     }
 
     @Override
-    public List<Category> getAll() {
+    public  List<Category> getAll() {
         List<Category> categories = new ArrayList<>();
         try {
             Connection connection = ConnectionHelper.getConnection();

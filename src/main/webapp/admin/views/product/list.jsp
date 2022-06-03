@@ -6,14 +6,21 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.example.t2009m1helloworld.entity.Category" %>
+<%@ page import="com.example.t2009m1helloworld.model.MySqlCategoryModel" %>
+<%@ page import="com.example.t2009m1helloworld.entity.Product" %>
 <html>
 <jsp:include page="/admin/components/head.jsp"/>
+
 <body>
 <div class="container-scroller">
     <jsp:include page="/admin/components/navbar.jsp"/>
     <div class="container-fluid page-body-wrapper">
         <jsp:include page="/admin/components/sidebar.jsp"/>
         <div class="main-panel">
+
             <div class="content-wrapper">
                 <div class="card">
                     <div class="card-body">
@@ -25,43 +32,50 @@
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th>Profile</th>
-                                    <th>VatNo.</th>
-                                    <th>Created</th>
-                                    <th>Status</th>
+                                    <th>id</th>
+                                    <th>Title</th>
+                                    <th>Thumbnail</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>Category</th>
+                                    <th>Description</th>
+                                    <th>Details</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <%
+                                    List<Product> products = (ArrayList<Product>) request.getAttribute("products");
+                                    for (Product product : products) {%>
                                 <tr>
-                                    <td>Jacob</td>
-                                    <td>53275531</td>
-                                    <td>12 May 2017</td>
-                                    <td><label class="badge badge-danger">Pending</label></td>
+                                    <td><%=product.getId()%>
+                                    </td>
+                                    <td><%=product.getTitle()%>
+                                    </td>
+                                    <td>
+                                        <div style="width: 100px;height: 100px;object-fit: cover">
+                                            <img style="width: 100%;height: 100%" src="<%=product.getThumbnail()%>"/>
+                                        </div>
+
+                                    </td>
+                                    <td><%=product.getQuantity()%>
+                                    </td>
+                                    <td><%=product.getPrice()%>
+                                    </td>
+                                    <td><%=product.getCategoryId()%>
+                                    </td>
+                                    <td><%=product.getDescription()%>
+                                    </td>
+                                    <td><%=product.getDetails()%>
+                                    </td>
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <button type="button" class="btn btn-outline-warning">edit</button>
+                                            <button type="button" class="btn btn-outline-danger">delete</button>
+                                        </div>
+                                    </td>
                                 </tr>
-                                <tr>
-                                    <td>Messsy</td>
-                                    <td>53275532</td>
-                                    <td>15 May 2017</td>
-                                    <td><label class="badge badge-warning">In progress</label></td>
-                                </tr>
-                                <tr>
-                                    <td>John</td>
-                                    <td>53275533</td>
-                                    <td>14 May 2017</td>
-                                    <td><label class="badge badge-info">Fixed</label></td>
-                                </tr>
-                                <tr>
-                                    <td>Peter</td>
-                                    <td>53275534</td>
-                                    <td>16 May 2017</td>
-                                    <td><label class="badge badge-success">Completed</label></td>
-                                </tr>
-                                <tr>
-                                    <td>Dave</td>
-                                    <td>53275535</td>
-                                    <td>20 May 2017</td>
-                                    <td><label class="badge badge-warning">In progress</label></td>
-                                </tr>
+                                <%}%>
                                 </tbody>
                             </table>
                         </div>
