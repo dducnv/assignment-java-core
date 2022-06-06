@@ -7,8 +7,9 @@ import java.util.List;
 
 public interface CategoryModel {
     boolean Save(Category category);
-    boolean Update (int id, Category updateCategory);
-    boolean Delete (int id);
     List<Category> getAll();
     Category findById(int id);
+    boolean Update (int id, Category updateCategory);
+    boolean Delete (int id);
+
 }

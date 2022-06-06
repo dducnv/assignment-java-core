@@ -9,7 +9,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.example.t2009m1helloworld.entity.Category" %>
-<%@ page import="com.example.t2009m1helloworld.model.MySqlCategoryModel" %>
+<%@ page import="com.example.t2009m1helloworld.model.sql_modal.MySqlCategoryModel" %>
 <%@ page import="com.example.t2009m1helloworld.entity.Product" %>
 <html>
 <jsp:include page="/admin/components/head.jsp"/>
@@ -20,7 +20,6 @@
     <div class="container-fluid page-body-wrapper">
         <jsp:include page="/admin/components/sidebar.jsp"/>
         <div class="main-panel">
-
             <div class="content-wrapper">
                 <div class="card">
                     <div class="card-body">
@@ -50,7 +49,7 @@
                                 <tr>
                                     <td><%=product.getId()%>
                                     </td>
-                                    <td><%=product.getTitle()%>
+                                    <td><%=product.getName()%>
                                     </td>
                                     <td>
                                         <div style="width: 100px;height: 100px;object-fit: cover">

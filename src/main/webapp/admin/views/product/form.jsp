@@ -1,13 +1,7 @@
-<%@ page import="com.example.t2009m1helloworld.model.MySqlCategoryModel" %>
+<%@ page import="com.example.t2009m1helloworld.model.sql_modal.MySqlCategoryModel" %>
 <%@ page import="com.example.t2009m1helloworld.entity.Category" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %><%--
-  Created by IntelliJ IDEA.
-  User: ducnv
-  Date: 31/05/2022
-  Time: 09:51
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <jsp:include page="/admin/components/head.jsp"/>
@@ -41,15 +35,21 @@
                                         <input type="text" class="form-control" name="thumbnail" id="exampleInputEmail1"
                                                placeholder="Thumbnail">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Price</label>
-                                        <input type="number" class="form-control" name="price"
-                                               id="exampleInputPassword1" placeholder="Price">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputConfirmPassword1">Quantity</label>
-                                        <input type="number" class="form-control" name="quantity"
-                                               id="exampleInputConfirmPassword1" placeholder="Quantity">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Price</label>
+                                                <input type="number" class="form-control" name="price"
+                                                       id="exampleInputPassword1" placeholder="Price">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="exampleInputConfirmPassword1">Quantity</label>
+                                                <input type="number" class="form-control" name="quantity"
+                                                       id="exampleInputConfirmPassword1" placeholder="Quantity">
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Single select box using select 2</label>
@@ -65,12 +65,12 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="description">Description</label>
-                                        <textarea class="form-control" id="description" name="description"
+                                        <textarea id="#summernote-desc" class="form-control" id="description" name="description"
                                                   rows="4"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="details">Details</label>
-                                        <textarea class="form-control" id="details" name="details" rows="4"></textarea>
+                                        <textarea id="#summernote-details" class="form-control" id="details" name="details" rows="4"></textarea>
                                     </div>
                                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                                 </form>

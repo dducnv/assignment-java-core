@@ -1,19 +1,53 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.example.t2009m1helloworld.model.sql_modal.MySqlProductModel" %>
+<%@ page import="com.example.t2009m1helloworld.entity.Product" %>
+<%@ page import="java.util.List" %>
+<%
+    MySqlProductModel productModel = new MySqlProductModel();
+    List<Product> products = productModel.getAll();
+%>
 <html>
-<head>
-    <title>JSP - Hello World</title>
-</head>
+<jsp:include page="/client/components/head.jsp"/>
 <body>
+<div class="content-wrapper min-vh-100">
+    <div class="container">
+        <div class="row">
+            <%
+                for (Product product : products) {%>
+            <div class="col-md-3">
+                <div class="card shadow-lg overflow-hidden">
+                    <div class="card-body p-0 ">
+                        <div style="object-fit: cover;height: 180px" class="w-100 overflow-hidden">
+                            <img class="w-100" src="<%=product.getThumbnail()%>" alt="<%=product.getName()%>">
+                        </div>
+                        <div class="p-2">
+                            <div class="mt-3 text-center">
+                                <h4 style="
+                                min-height: 40px;
+                                    display: inline-block;
+                                    word-wrap: break-word;
+                                    white-space: normal;
+                                    overflow: hidden;
+                                    display: -webkit-box;
+                                    text-overflow: ellipsis;
+                                    -webkit-box-orient: vertical;
+                                    -webkit-line-clamp: 2;"
+                                    class="text-center "><%=product.getName()%>
+                                </h4>
+                                <h5><%=product.getPrice()%>
+                                </h5>
+                            </div>
+                            <a href="/cart/add?productId=<%=product.getId()%>&quantity=1" class="btn btn-primary w-100">Add to cart</a>
+                        </div>
 
-<nav  style="display: flex;justify-content: space-between;padding: 5px 20px;border-bottom: 1px solid #000">
-    <h1>T2009M JAVA</h1>
+                    </div>
+                </div>
+            </div>
+            <%}%>
 
-        <ul style="display: flex;list-style: none;align-content: center">
-            <li style="margin-right: 10px; height: 100%;display: flex;justify-content: center">
-                <a href="/login">Login</a></li>
-            <li style=" height: 100%;display: flex;justify-content: center"><a href="/register">Register</a></li>
-        </ul>
-</nav>
+        </div>
+    </div>
+</div>
+<jsp:include page="/client/components/scripts.jsp"/>
 </body>
 </html>
