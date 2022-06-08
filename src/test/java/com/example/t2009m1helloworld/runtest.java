@@ -4,7 +4,9 @@ import com.example.t2009m1helloworld.entity.Account;
 import com.example.t2009m1helloworld.entity.Category;
 import com.example.t2009m1helloworld.entity.Product;
 import com.example.t2009m1helloworld.entity.User;
+import com.example.t2009m1helloworld.entity.myenum.AccountStatus;
 import com.example.t2009m1helloworld.entity.myenum.ProductStatus;
+import com.example.t2009m1helloworld.model.sql_modal.MySqlAccountModel;
 import com.example.t2009m1helloworld.model.sql_modal.MySqlCategoryModel;
 import com.example.t2009m1helloworld.model.sql_modal.MySqlProductModel;
 import org.junit.jupiter.api.Test;
@@ -41,5 +43,23 @@ public class runtest {
         MySqlProductModel mySqlProductModel = new MySqlProductModel();
         Product product = mySqlProductModel.findById(1);
         System.out.println(product.getName());
+    }
+    @Test
+    void AddAccount(){
+        Account account = new Account();
+        account.setUsername("admin");
+        account.setPassword("admin");
+        account.setRoleID(1);
+        account.setStatus(AccountStatus.getAccountStatus(1));
+        MySqlAccountModel mySqlAccountModel = new MySqlAccountModel();
+        boolean result = mySqlAccountModel.Save(account);
+        System.out.println(result);
+    }
+    @Test
+    void findByName(){
+        MySqlAccountModel mySqlAccountModel = new MySqlAccountModel();
+        Account accounts = mySqlAccountModel.findByUsername("admin");
+        System.out.println(accounts.getUsername());
+
     }
 }
