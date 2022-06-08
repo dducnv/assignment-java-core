@@ -1,7 +1,7 @@
 <%@ page import="com.example.t2009m1helloworld.model.sql_modal.MySqlCategoryModel" %>
 <%@ page import="com.example.t2009m1helloworld.entity.Category" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <jsp:include page="/admin/components/head.jsp"/>
@@ -27,7 +27,7 @@
                                 <form action="/product" method="post" class="forms-sample">
                                     <div class="form-group">
                                         <label for="exampleInputUsername1">Title</label>
-                                        <input type="text" class="form-control" name="title" id="exampleInputUsername1"
+                                        <input type="text" class="form-control" name="name" id="exampleInputUsername1"
                                                placeholder="Title">
                                     </div>
                                     <div class="form-group">

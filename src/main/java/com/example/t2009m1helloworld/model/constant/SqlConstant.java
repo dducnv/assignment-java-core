@@ -39,4 +39,13 @@ public class SqlConstant {
     public static final String PRODUCT_FIELD_DETAILS = "details";
     public static final String PRODUCT_FIELD_CATEGORY_ID = "category_id";
     //END OF PRODUCT SQL COMMAND
+
+
+    //ACCOUNT SQL COMMAND
+    public static final String ACCOUNT_INSERT = "INSERT INTO accounts (username, password, roleId, status, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?, ?);";
+    public static final String ACCOUNT_UPDATE = "UPDATE accounts SET username = ?, password = ?, roleId = ?, status = ?, createdAt = ?, updatedAt = ?, createdBy = ?, updatedBy = ? WHERE id = ?;";
+    public static final String ACCOUNT_DELETE = "DELETE FROM accounts WHERE id = ?;";
+    public static final String ACCOUNT_FIND_BY_ID = "SELECT * FROM accounts WHERE id = ? AND status = ?;";
+    public static final String ACCOUNT_FIND_ALL = "SELECT * FROM accounts;";
+    public static final String ACCOUNT_FIND_BY_USERNAME = "SELECT * FROM accounts WHERE username = ? AND status = ?;";
 }

@@ -13,8 +13,7 @@ public class Cart {
     private HashMap<Integer,CartItem> items;
 
     public List<CartItem> getListItem(){
-        List<CartItem> listItem = new ArrayList<>();
-        return listItem;
+        return new ArrayList<>();
     }
     public boolean add(Product product,int quatity){
         CartItem cartItem = null;
@@ -23,12 +22,12 @@ public class Cart {
             cartItem.setQuantity(cartItem.getQuantity()+quatity);
         }else{
             cartItem = CartItem.CartItemBuilder.aCartItem()
-                    .productId(product.getId())
-                    .productName(product.getName())
-                    .productThumbnail(product.getThumbnail())
-                    .unitPrice(product.getPrice())
-                    .quantity(quatity)
-                    .build();
+                        .productId(product.getId())
+                        .productName(product.getName())
+                        .productThumbnail(product.getThumbnail())
+                        .unitPrice(product.getPrice())
+                        .quantity(quatity)
+                        .build();
         }
         items.put(product.getId(),cartItem);
         return true;

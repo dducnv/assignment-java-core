@@ -1,10 +1,14 @@
 <%@ page import="com.example.t2009m1helloworld.util.ShoppingCartHelper" %>
 <%@ page import="com.example.t2009m1helloworld.entity.Cart" %>
 <%@ page import="com.example.t2009m1helloworld.entity.CartItem" %>
+<%@ page import="java.util.Locale" %>
+<%@ page import="java.text.NumberFormat" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     ShoppingCartHelper cartHelper = new ShoppingCartHelper(request);
     Cart cart = cartHelper.getCart();
+    Locale locale = new Locale("vi","VN");
+    NumberFormat ff = NumberFormat.getCurrencyInstance(locale);
 %>
 <html>
 <jsp:include page="/client/components/head.jsp"/>
@@ -47,7 +51,7 @@
                                 <%= item.getProductId() %>
                             </td>
                             <td>
-                                <img src="<%= item.getProductThumbnail() %>" alt="product" width="50" height="50">
+                                <img src="<%= item.getProductThumbnail() %>" alt="<%=item.getProductName()%>" width="50" height="50">
                             </td>
                             <td>
                                 <%= item.getProductName() %>

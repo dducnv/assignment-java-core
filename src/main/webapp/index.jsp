@@ -2,9 +2,13 @@
 <%@ page import="com.example.t2009m1helloworld.model.sql_modal.MySqlProductModel" %>
 <%@ page import="com.example.t2009m1helloworld.entity.Product" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Locale" %>
+<%@ page import="java.text.NumberFormat" %>
 <%
     MySqlProductModel productModel = new MySqlProductModel();
     List<Product> products = productModel.getAll();
+    Locale locale = new Locale("vi", "VN");
+    NumberFormat nf = NumberFormat.getCurrencyInstance(locale);
 %>
 <html>
 <jsp:include page="/client/components/head.jsp"/>
@@ -34,10 +38,11 @@
                                     -webkit-line-clamp: 2;"
                                     class="text-center "><%=product.getName()%>
                                 </h4>
-                                <h5><%=product.getPrice()%>
+                                <h5><%=nf.format(product.getPrice()) %>
                                 </h5>
                             </div>
-                            <a href="/cart/add?productId=<%=product.getId()%>&quantity=1" class="btn btn-primary w-100">Add to cart</a>
+                            <a href="/cart/add?productId=<%=product.getId()%>&quantity=1" class="btn btn-primary w-100">Add
+                                to cart</a>
                         </div>
 
                     </div>

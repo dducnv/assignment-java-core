@@ -7,41 +7,52 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-</head>
+<jsp:include page="/client/components/head.jsp"/>
 <body>
-<div  style="display: flex;justify-content:center;align-items: center;min-height: 100vh">
-    <div >
-        <div style="border:1px solid #000;padding: 10px">
-            <h1 style="text-align: center;font-size:18px">Login</h1>
-            <form action="/login" method="post">
-                <div style="margin-bottom: 5px">
-                    <label for="username">Username</label><br/>
-                    <input style="margin-bottom: 3px" id="username" name="username" type="text"/>
-                    <br/>
-                    <span style="color: red;font-size: 10px">Vui lòng nhập.</span>
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-center auth px-0">
+            <div class="row w-100 mx-0">
+                <div class="col-lg-4 mx-auto">
+                    <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+
+                        <h4>Hello! let's get started</h4>
+                        <h6 class="font-weight-light">Sign in to continue.</h6>
+                        <form action="/login" method="post" class="pt-3">
+                            <div class="form-group">
+                                <input type="text" name="username" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                            <div class="mt-3">
+                                <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" >SIGN IN</button>
+                            </div>
+                            <div class="my-2 d-flex justify-content-between align-items-center">
+                                <div class="form-check">
+                                    <label class="form-check-label text-muted">
+                                        <input type="checkbox" class="form-check-input">
+                                        Keep me signed in
+                                    </label>
+                                </div>
+                                <a href="#" class="auth-link text-black">Forgot password?</a>
+                            </div>
+                            <div class="mb-2">
+                                <button type="button" class="btn btn-block btn-facebook auth-form-btn">
+                                    <i class="ti-facebook mr-2"></i>Connect using facebook
+                                </button>
+                            </div>
+                            <div class="text-center mt-4 font-weight-light">
+                                Don't have an account? <a href="register.html" class="text-primary">Create</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div>
-                    <label for="password">Password</label><br/>
-                    <input style="margin-bottom: 3px" id="password" name="password" type="password"/>
-                    <br/>
-                    <span style="color: red;font-size: 10px">Vui lòng nhập.</span>
-                </div>
-                <br/>
-                <div style="display: flex;align-items: center">
-                    <button type="submit" style="margin-right: 5px">submit</button>
-                    <button type="reset" style="margin-right: 5px">reset</button>
-                    <a style="text-align: center" href="/register">Register</a>
-                </div>
-            </form>
+            </div>
         </div>
-
+        <!-- content-wrapper ends -->
     </div>
-
-
-
+    <!-- page-body-wrapper ends -->
 </div>
 </body>
 </html>

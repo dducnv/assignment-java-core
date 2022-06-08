@@ -1,26 +1,29 @@
 package com.example.t2009m1helloworld.entity;
 
+import com.example.t2009m1helloworld.entity.Base.BaseEntity;
+import com.example.t2009m1helloworld.entity.myenum.AccountStatus;
+
+import java.time.LocalDateTime;
 import java.util.HashMap;
 
-public class Account {
-    int id;
-    String fullName;
-    String phone;
-    String email;
-    String birthday;
-    String username;
-    String password;
-    public  Account(){
+public class Account extends BaseEntity {
+    private int id;
+    private String username;
+    private String password;
+    private String confirmPassword;
+    private int roleID;
+    private AccountStatus status;
+
+    public Account() {
     }
 
-    public Account(int id, String fullName, String phone, String email, String birthday, String username, String password) {
+    public Account(int id, String username, String password, String confirmPassword, int roleID, AccountStatus status) {
         this.id = id;
-        this.fullName = fullName;
-        this.phone = phone;
-        this.email = email;
-        this.birthday = birthday;
         this.username = username;
         this.password = password;
+        this.confirmPassword = confirmPassword;
+        this.roleID = roleID;
+        this.status = status;
     }
 
     public int getId() {
@@ -29,38 +32,6 @@ public class Account {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
     }
 
     public String getUsername() {
@@ -78,37 +49,127 @@ public class Account {
     public void setPassword(String password) {
         this.password = password;
     }
-    private HashMap<String, String> errors = new HashMap<>();
 
-    public boolean isValid() {
-       checkValid();
-       return errors.size() == 0;
+    public String getConfirmPassword() {
+        return confirmPassword;
     }
 
-    public void checkValid (){
-        errors.clear();
-        if (fullName == null || fullName.isEmpty()) {
-            errors.put("fullName", "Full name is required");
-        }
-        if (phone == null || phone.isEmpty()) {
-            errors.put("phone", "Phone is required");
-        }
-        if (email == null || email.isEmpty()) {
-            errors.put("email", "Email is required");
-        }
-        if (birthday == null || birthday.isEmpty()) {
-            errors.put("birthday", "Birthday is required");
-        }
-        if (username == null || username.isEmpty()) {
-            errors.put("username", "Username is required");
-        }
-        if (password == null || password.isEmpty() ) {
-            errors.put("password", "Password is required");
-        }
-
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 
-    public HashMap<String, String> getError() {
-           return errors;
+    public int getRoleID() {
+        return roleID;
+    }
+
+    public void setRoleID(int roleID) {
+        this.roleID = roleID;
+    }
+
+    public AccountStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(AccountStatus status) {
+        this.status = status;
+    }
+
+    public static final class AccountBuilder {
+        protected LocalDateTime createdAt;
+        protected LocalDateTime updatedAt;
+        protected LocalDateTime deletedAt;
+        protected int createdBy;
+        protected int updatedBy;
+        protected int deletedBy;
+        private int id;
+        private String username;
+        private String password;
+        private String confirmPassword;
+        private int roleID;
+        private AccountStatus status;
+
+        private AccountBuilder() {
+        }
+
+        public static AccountBuilder anAccount() {
+            return new AccountBuilder();
+        }
+
+        public AccountBuilder withId(int id) {
+            this.id = id;
+            return this;
+        }
+
+        public AccountBuilder withUsername(String username) {
+            this.username = username;
+            return this;
+        }
+
+        public AccountBuilder withPassword(String password) {
+            this.password = password;
+            return this;
+        }
+
+        public AccountBuilder withConfirmPassword(String confirmPassword) {
+            this.confirmPassword = confirmPassword;
+            return this;
+        }
+
+        public AccountBuilder withRoleID(int roleID) {
+            this.roleID = roleID;
+            return this;
+        }
+
+        public AccountBuilder withStatus(AccountStatus status) {
+            this.status = status;
+            return this;
+        }
+
+        public AccountBuilder withCreatedAt(LocalDateTime createdAt) {
+            this.createdAt = createdAt;
+            return this;
+        }
+
+        public AccountBuilder withUpdatedAt(LocalDateTime updatedAt) {
+            this.updatedAt = updatedAt;
+            return this;
+        }
+
+        public AccountBuilder withDeletedAt(LocalDateTime deletedAt) {
+            this.deletedAt = deletedAt;
+            return this;
+        }
+
+        public AccountBuilder withCreatedBy(int createdBy) {
+            this.createdBy = createdBy;
+            return this;
+        }
+
+        public AccountBuilder withUpdatedBy(int updatedBy) {
+            this.updatedBy = updatedBy;
+            return this;
+        }
+
+        public AccountBuilder withDeletedBy(int deletedBy) {
+            this.deletedBy = deletedBy;
+            return this;
+        }
+
+        public Account build() {
+            Account account = new Account();
+            account.setId(id);
+            account.setUsername(username);
+            account.setPassword(password);
+            account.setConfirmPassword(confirmPassword);
+            account.setRoleID(roleID);
+            account.setStatus(status);
+            account.createdBy = this.createdBy;
+            account.updatedBy = this.updatedBy;
+            account.deletedAt = this.deletedAt;
+            account.createdAt = this.createdAt;
+            account.deletedBy = this.deletedBy;
+            account.updatedAt = this.updatedAt;
+            return account;
+        }
     }
 }

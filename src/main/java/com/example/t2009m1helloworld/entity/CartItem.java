@@ -2,7 +2,7 @@ package com.example.t2009m1helloworld.entity;
 
 public class CartItem {
     private int productId;
-    private String productName; // tránh truy vấn nhiều vào db
+    private String productName;
     private String productThumbnail;
     private  double unitPrice;
     private int quantity;
@@ -61,7 +61,7 @@ public class CartItem {
 
     public static final class CartItemBuilder {
         private int productId;
-        private String productName; // tránh truy vấn nhiều vào db
+        private String productName;
         private String productThumbnail;
         private  double unitPrice;
         private int quantity;
